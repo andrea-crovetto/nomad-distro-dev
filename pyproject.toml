@@ -83,7 +83,10 @@ cmd = "nomad admin run hub"
 cwd = "packages/nomad-FAIR"
 
 [tool.poe.tasks.gui]
-control.expr = "sys.platform"
+cmd = '"C:/Program Files (x86)/Yarn/bin/yarn.cmd" run'
+cwd = "packages/nomad-FAIR/gui"
+env = { NODE_EXE = "C:/Program Files/node-v26.13.0-win-x64/node.exe" }
+
 
 [[tool.poe.tasks.gui.switch]]
 case = "win32"
@@ -95,7 +98,9 @@ cmd = "yarn run start"
 cwd = "packages/nomad-FAIR/gui"
 
 [tool.poe.tasks.gui-setup]
-sequence = ["gui-env", "gui-install"]
+cmd = '"C:/Program Files (x86)/Yarn/bin/yarn.cmd"'
+cwd = "packages/nomad-FAIR/gui"
+env = { NODE_EXE = "C:/Program Files/node-v26.13.0-win-x64/node.exe" }
 
 [tool.poe.tasks.gui-install]
 control.expr = "sys.platform"
